@@ -1,0 +1,487 @@
+.isBigScreen h1 {
+    font-family: Poppins; font-size: 32px; font-weight: 600; line-height: 35.2px; text-align: center;
+}
+.isBigScreen #yukLanjutinVideoBelajarmu {
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: center;
+}
+.isBigScreen .required {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    color: #D32E1F;
+}
+.isBigScreen .fa-eye {
+    font-size: 18px;
+    line-height: 1;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+.isBigScreen .labelFullName {
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+    float: left;
+    margin-left: 0px;
+}
+.isBigScreen .inputFullName {
+    width: 518px;
+    height: 48px;
+    gap: 0px;
+    border-radius: 6px;
+    border: 1px solid #F1F1F1;
+    opacity: 0px;
+    margin-bottom: 16px;
+}
+.isBigScreen .labelEmail {
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+    float: left;
+    margin-left: 0px;
+}
+.isBigScreen .inputEmail {
+    width: 518px;
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid #F1F1F1;
+    margin-bottom: 18px;
+}
+.isBigScreen .labelNoTelp {
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+    text-align: left;
+    float: left;
+}
+.isBigScreen .user-box {
+    position: relative;
+    margin-bottom: 0px;
+}
+/* .isBigScreen .user-box {
+    position: relative;
+    margin-bottom: 30px;
+} */
+.isBigScreen .conInputNoTelp {
+    /* margin: "auto";
+    height: 48px;
+    width: 512px; */
+    width: 518px;
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid #F1F1F1;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 18px;
+}
+/* .isBigScreen .conInputNoTelp .form-control {
+    padding-left: 10px !important;
+} */
+.isBigScreen .input-group {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+}
+.isBigScreen #inputNoTelp {
+    margin-left: 10px;
+    width: 350px;
+}
+
+.isBigScreen .labelPassword {
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+    float: left;
+    margin-left: 0px;
+}
+.isBigScreen .inputKataSandi {
+    width: 518px;
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: #F1F1F1;
+    opacity: 0px;
+    margin-left: -10px;
+    margin-bottom: 16px;
+}
+.isBigScreen .labelKonfirmasiPassword {
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+    float: left;
+    margin-left: 0px;
+}
+.isBigScreen .inputKonfirmasiPassword {
+    width: 518px;
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid #F1F1F1;
+    margin-left: -10px;
+    margin-bottom: 18px;
+}
+.isBigScreen .forgotPassword {
+    margin-right: 36px;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+}
+.isBigScreen .login {
+    width: 117px;
+    height: 42px;
+    gap: 0px;
+    border-radius: 10px;
+    border: 1px;
+    opacity: 0px;
+    margin: 5px;
+}
+.isBigScreen .register {
+    width: 117px;
+    height: 42px;
+    gap: 0px;
+    border-radius: 10px;
+    border: 1px;
+    margin-left: 5px;
+    margin-right: 40px;
+}
+/* .showOnMobile {
+    visibility: hidden;
+} */
+.isBigScreen .btnDaftar {
+    width: 518px;
+    height: 42px;
+    gap: 0px;
+    border-radius: 10px;
+    opacity: 0px;
+    background-color: #3ECF4C;
+    color: #FFFFFF;
+    border: 0px;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    margin-bottom: 16px;
+}
+.isBigScreen .btnMasuk {
+    width: 518px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: #E2FCD9CC;
+    color: #3ECF4C;
+    border: 0px;
+    margin-bottom: 16px;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+}
+.isBigScreen #btnLoginWithGoogle {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    width: 518px;
+    height: 42px;
+    gap: 0px;
+    border-radius: 10px;
+    border: 1px;
+    padding: 8px 26px 8px 26px;
+    gap: 8px;
+    opacity: 0px;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+}
+.isBigScreen button > i {
+    margin-left: auto;
+    vertical-align: auto;
+    margin-right: 0px;
+    margin-top: 4px;
+}
+.isBigScreen button > span {
+    margin-right: auto;
+    vertical-align: auto;
+}
+.isBigScreen article {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    width: 590px;
+    height: 617px;
+    text-align: center;
+    gap: 36px;
+    opacity: 0px;
+}
+.isBigScreen section {
+    width: 590px;
+    height: 617px;
+    background-color: #FFFDF3;
+    margin: auto;
+    padding: 36px 0px 0px 0px;
+    gap: 36px;
+    border-radius: 4px 0px 0px 0px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+}
+.isBigScreen .forgotPassword {
+    text-align: right;
+}
+.isBigScreen article a {
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: right;
+    text-decoration: none;
+    color: #4A505C;
+}
+.isBigScreen h1 {
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 35.2px;
+    text-align: center;
+    margin-bottom: 0px;
+    color: #222325;
+}
+.isBigScreen #yukDaftarkanAkunmu {
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: center;
+    margin-top: 0px;
+    color: #333333AD;
+}
+
+/* SmallScreen */
+.isSmallScreen article {
+    width:88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.isSmallScreen h1 {
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 26.4px;
+    text-align: center;
+}
+.isSmallScreen .required {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+    text-align: left;
+    color: #D32E1F;
+}
+.isSmallScreen .labelFullName, .labelEmail, .labelNoTelp, .labelPassword, .labelKonfirmasiPassword {
+    font-family: DM Sans;
+    color: #333333AD;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+    float: left;
+}
+.isSmallScreen .inputEmail, .inputKataSandi, .inputKonfirmasiPassword, .inputFullName {
+    width: 100%;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: #F1F1F1;
+}
+
+.isSmallScreen .conInputNoTelp {
+    /* margin: "auto";
+    height: 48px;
+    width: 512px; */
+    width: 100%;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid #F1F1F1;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+/* .isSmallScreen .conInputNoTelp .form-control {
+    padding-left: 10px !important;
+} */
+.isSmallScreen .input-group {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+}
+.isSmallScreen .input-group-text {
+    max-width: 45px;
+    min-width: 20px;
+}
+.isSmallScreen #inputGroupSelect01 {
+    /* max-width: 40px;
+    min-width: 40px; */
+    width: 40px;
+}
+.isSmallScreen #inputNoTelp {
+    margin-left: 10px;
+    /* row-gap: 10px; */
+    /* width: 70%; */
+    width: 130px;
+}
+#isXsScreenDevice {
+    margin-bottom: 15px;
+}
+#isXsScreenDevice #inputNoTelp {
+    margin-left: 0px;
+}
+
+.isSmallScreen .fa-eye {
+    font-size: 18px;
+    line-height: 1;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+.isSmallScreen .forgotPassword {
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333AD;
+    line-height: 19.6px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: right;
+}
+.isSmallScreen .btnMasuk {
+    width: 100%;
+    gap: 0px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 16px;
+    opacity: 0px;
+    background-color: #3ECF4C;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.isSmallScreen .btnDaftar {
+    width: 100%;
+    gap: 0px;
+    border-radius: 10px;
+    border: none;
+    opacity: 0px;
+    background-color: #E2FCD9CC;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: center;
+    color: #3ECF4C;
+    margin-bottom: 16px;
+}
+.isSmallScreen #btnLoginWithGoogle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 0px;
+    border-radius: 10px;
+    border: 1px;
+    opacity: 0px;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.6px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+}
+.isSmallScreen button > span {
+    margin-right: auto;
+    margin-left: 8px;
+    vertical-align: auto;
+}
+.isSmallScreen button > i {
+    margin-left: auto;
+    vertical-align: auto;
+    margin-right: 0px;
+    margin-top: 4px;
+}
+/* .isSmallScreen #yukLanjutinVideoBelajarmu {
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: center;
+} */
+.isSmallScreen #yukDaftarkanAkunmu {
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: center;
+    margin-top: 0px;
+    color: #333333AD;
+}
+.isSmallScreen .active {
+    margin-left: 0px;
+}
+.isSmallScreen .nav-item {
+    margin: 10px;
+}
+.isSmallScreen .hamburger {
+    gap: 0px;
+    opacity: 0px;
+    display: block;
+    cursor: pointer;
+}
+.isSmallScreen .bar {
+    width: 24px;
+    margin-right: 25px;
+}
+.isSmallScreen .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.isSmallScreen .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.isSmallScreen .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}

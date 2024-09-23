@@ -1,0 +1,72 @@
+/* Big Screen */
+.isBigScreen nav {
+    height: 80px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 120px;
+    gap: 36px;
+    border-bottom: 1px solid #3A35411F;
+}
+.isBigScreen .nav-logo {
+    width: 237px;
+    height: 56px;
+    padding-left: 22px;
+    gap: 0px;
+    opacity: 0px;
+    margin-top: auto;
+    margin-bottom: auto;
+    gap: 60px;
+}
+.isBigScreen nav li {
+    background-color: #3ECF4C;
+    border: 1px solid #3ECF4C;
+    list-style: none;
+    margin: 0 0.5rem;
+    width: 117px;
+    line-height: 42px;
+    text-align: center;
+}
+.isBigScreen nav > ul {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Small Screen */
+.isSmallScreen .nav-logo {
+    width: 152px;
+    height: 42px;
+    gap: 60px;
+    opacity: 0px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.isSmallScreen .nav-item {
+    margin-left: 5rem;
+}
+.isSmallScreen ul.nav-menu.active{
+    padding: 0px;
+}
+.isSmallScreen .nav-menu {
+    position: fixed;
+    left: -1000%;
+    top: 5rem;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+}
+.isSmallScreen .nav-menu.active {
+    margin: 0px;
+    left: 0;
+}
+.isSmallScreen article {
+    width:88%;
+    margin-left: auto;
+    margin-right: auto;
+}
