@@ -76,6 +76,9 @@ nav.navbar {
 .isBigScreen .dropbtn span {
     display: none;
 }
+.isBigScreen .hamburger {
+    display: none;
+}
 
 /* isSmallScreen */
 .isSmallScreen nav {
