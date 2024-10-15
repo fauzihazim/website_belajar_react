@@ -1,16 +1,30 @@
 import { useMediaQuery } from "@uidotdev/usehooks";
 import './Section.css';
 import { useNavigate } from 'react-router-dom';
-import React from "react";
+import React, { useState } from "react";
+import useUser from "../../data/UseUser";
 
 export default function Section() {
+    const items = useUser((state) => state.items);
+    const selectedUser = useUser((state) => state.selectedUser);
+    // const updateItems = useUser((state) => state.updateItems);
+    const selectUserByEmail = useUser((state) => state.selectUserByEmail);
+    const [ email, setEmail ] = useState('');
     const bigScreenDevice = useMediaQuery("only screen and (min-width : 811px)");
     const navigate = useNavigate();
+
+    const handleEmail = (event) => {
+        setEmail(event.target.value);
+    }
+
     const goToBeranda = () => {
         navigate('/beranda');
     };
     const goToregister = () => {
         navigate('/register');
+    }
+    const goToLupaKataSandi = () => {
+        navigate('/lupaKataSandi');
     }
     function seePassword () {
         const togglePassword = document.getElementById('togglePassword');
@@ -30,6 +44,21 @@ export default function Section() {
             }
         }
     }
+    const clickToLogin = () => {
+        // const findId = items.find(item => item.email === email).id;
+        // updateItems([{ id: findId, kataSandi, konfirmasiKataSandi }]);
+        handleSelectedEmail(email);
+        goToBeranda();
+        // navigate('/beranda');
+    }
+
+    // console.log('Selecting: ', selectedUser);
+
+    const handleSelectedEmail = (index) => {
+        selectUserByEmail(index);
+    };
+    console.log(items);
+    
     return (
         <>
             <section className={bigScreenDevice ? "isBigScreen" : "isSmallScreen"}>
@@ -42,7 +71,7 @@ export default function Section() {
                     E-mail <span className="required">*</span>
                     </label>
                     <br />
-                    <input className="inputEmail" type="email" name="" id="email" />
+                    <input className="inputEmail" type="email" name="" id="email" value={email} onChange={handleEmail} />
                     <br />
                     <div className="user-box">
                         <label className="labelPassword" htmlFor="kataSandi">
@@ -60,9 +89,9 @@ export default function Section() {
                         </span>
                     </div>
                     <h5 className="forgotPassword" id="forgotPassword">
-                    <a href="#">Lupa Password?</a>
+                    <a onClick={goToLupaKataSandi} href="">Lupa Password?</a>
                     </h5>
-                    <button className="btnMasuk" onClick={goToBeranda}>Masuk</button>
+                    <button className="btnMasuk" onClick={clickToLogin}>Masuk</button>
                     <br />
                     <button className="btnDaftar" onClick={goToregister}>Daftar</button>
                     <br />

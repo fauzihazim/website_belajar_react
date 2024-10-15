@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import $, { event } from 'jquery';
+import React from 'react';
+// import ReactDOM from 'react-dom';
+import { event } from 'jquery';
 import { useMediaQuery } from "@uidotdev/usehooks";
+import useUser from '../../data/UseUser';
 // import './styles/Section.css';
 import './styles/Section.css';
 
 export default function Section() {
+    const selectedUser = useUser((state) => state.selectedUser);
     const bigScreenDevice = useMediaQuery("only screen and (min-width : 811px)");
+    // const { index } = route;
     function openCategory (evt, categoryName, idTag) {
         // console.log(evt, categoryName, idTag);
         if (categoryName) {
@@ -27,6 +30,8 @@ export default function Section() {
             console.log("kosong");
         }
     }
+    // console.log("Selected User in beranda: ", selectedUser[0].email);
+    
     return (
         <>
             <section>
@@ -50,6 +55,7 @@ export default function Section() {
                     </div>
                 </article>
                 <article className={bigScreenDevice ? "isBigScreen" : "isSmallScreen"}>
+                    {/* <h1 style={{ display:'none' }}>Email: {selectedUser[0].email}</h1> */}
                     <h1 className='h1Article'>Koleksi Video Pembelajaran Unggulan</h1>
                     <h5 className='jelajahiDunia'>Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!</h5>
                     <div className="tab">

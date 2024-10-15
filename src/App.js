@@ -4,7 +4,8 @@ import Header from './navbar/Header';
 import Section from './pages/login/Section';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
-import Beranda from './pages/beranda/Beranda'
+import Beranda from './pages/beranda/Beranda';
+import LupaKataSandi from './pages/lupaKataSandi/LupaKataSandi';
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/beranda" element={<Beranda />}/>
+          <Route path='/lupaKataSandi' element={<LupaKataSandi/>}/>
         </Routes>
       </Router>
     </>

@@ -1,7 +1,11 @@
+import React, { useState } from 'react';
 import { useMediaQuery } from "@uidotdev/usehooks";
 import './Section.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
+import useUser from "../../data/UseUser";
 
 export default function Section() {
     const bigScreenDevice = useMediaQuery("only screen and (min-width : 811px)");
@@ -24,6 +28,49 @@ export default function Section() {
                 togglePassword.classList.add("fa-eye");
             }
         }
+    }
+
+
+    // Data
+    const items = useUser((state) => state.items);
+    const addItem = useUser((state) => state.addItem);
+    const [ namaLengkap, setNamaLengkap ] = useState('');
+    const [ email, setEmail ] = useState('');
+    const [ noHp, setNoHp ] = useState('');
+    const [ kataSandi, setKataSandi ] = useState('');
+    const [ konfirmasiKataSandi, setKonfirmasiKataSandi ] = useState('');
+
+    const navigate = useNavigate();
+    
+    // const [ lastName, setLastName ] = useState('');
+    console.log(items);
+    
+    const handleAddItem = () => {
+        console.log(items);
+        const filteredPeople = items.find(item => item.email === email);
+    // console.log(!filteredPeople);
+        if (filteredPeople) {
+            alert("User sudah ada");
+            setNamaLengkap('');
+            setEmail('');
+            setNoHp('');
+            setKataSandi('');
+            setKonfirmasiKataSandi('');
+            return;
+        }
+        addItem({ id: items.length + 1, namaLengkap, email, noHp, kataSandi, konfirmasiKataSandi });
+        setNamaLengkap('');
+        setEmail('');
+        setNoHp('');
+        setKataSandi('');
+        setKonfirmasiKataSandi('');
+        goToBeranda();
+        
+        // Late assign
+        // console.log(items);
+    };
+    const goToBeranda = () => {
+        navigate('/beranda');
     }
     
     // Function See Confirm Password
@@ -53,11 +100,11 @@ export default function Section() {
                     <h5 id="yukDaftarkanAkunmu">Yuk, daftarkan akunmu sekarang juga!</h5>
                     <label htmlFor="fullName" className="labelFullName">Nama Lengkap <span className="required">*</span></label>
                     <br />
-                    <input type="text" name="Full Name" id="fullName" className="inputFullName" />
+                    <input type="text" name="Full Name" id="fullName" className="inputFullName" value={namaLengkap} onChange={(e) => setNamaLengkap(e.target.value)} />
                     <br />
                     <label htmlFor="email" className="labelEmail">Email <span className="required">*</span></label>
                     <br />
-                    <input type="email" name="Email" id="email" className="inputEmail" />
+                    <input type="email" name="Email" id="email" className="inputEmail" value={email} onChange={(e) => setEmail(e.target.value)} />
                     <br />
                     <label htmlFor="noTelp" className="labelNoTelp">No. HP <span className="required">*</span></label>
                     <br />
@@ -75,7 +122,7 @@ export default function Section() {
                                 <option value={2}>Two</option>
                                 <option value={3}>Three</option>
                             </select>
-                            <input type="number" id="inputNoTelp" class="form-control col-8" aria-label="Dollar amount (with dot and two decimal places)"></input>
+                            <input type="number" id="inputNoTelp" class="form-control col-8" aria-label="Dollar amount (with dot and two decimal places)" value={noHp} onChange={(e) => setNoHp(e.target.value)}></input>
                         </div>
                     </div>
                     <br />
@@ -83,7 +130,7 @@ export default function Section() {
                         <label htmlFor="password" className="labelPassword">Kata Sandi <span className="required">*</span>
                         </label>
                         <br />
-                        <input type="password" name="" id="kataSandi" className="inputKataSandi"/>
+                        <input type="password" name="" id="kataSandi" className="inputKataSandi" value={kataSandi} onChange={(e) => setKataSandi(e.target.value)} />
                         <span className="password-toggle-icon">
                             {/* <FontAwesomeIcon icon={faEyeSlash} className="passwordIcon" /> */}
                             <i className="fa-solid fa-eye" id="togglePassword" onClick={() => seePassword()}></i>
@@ -95,7 +142,7 @@ export default function Section() {
                             Konfirmasi Kata Sandi <span className="required">*</span>
                         </label>
                         <br />
-                        <input type="password" className="inputKonfirmasiPassword" name="" id="konfirmasiKataSandi"/>
+                        <input type="password" className="inputKonfirmasiPassword" name="" id="konfirmasiKataSandi" value={konfirmasiKataSandi} onChange={(e) => setKonfirmasiKataSandi(e.target.value)} />
                         <span className="password-toggle-icon">
                             {/* <FontAwesomeIcon icon={faEyeSlash} className="passwordIcon" /> */}
                             <i className="fa-solid fa-eye" id="toggleKonfirmasiPassword" onClick={() => seeConfirmPassword()}></i>
@@ -104,7 +151,7 @@ export default function Section() {
                     <h5 className="forgotPassword" id="forgotPassword">
                         <a href="#" style={{ color: "#333333AD", textDecoration: "none" }}>Lupa Password?</a>
                     </h5>
-                    <button className="btnDaftar">Daftar</button>
+                    <button className="btnDaftar" onClick={handleAddItem}>Daftar</button>
                     <br />
                     <button className="btnMasuk">Masuk</button>
                     <br />
