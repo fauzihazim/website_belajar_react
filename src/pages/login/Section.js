@@ -1,22 +1,32 @@
 import { useMediaQuery } from "@uidotdev/usehooks";
 import './Section.css';
 import { useNavigate } from 'react-router-dom';
-import React, { useState } from "react";
-import useUser from "../../data/UseUser";
+import { useState, useEffect } from "react";
+import useLink from "../../data/UseLink";
 
 export default function Section() {
-    const items = useUser((state) => state.items);
-    const selectedUser = useUser((state) => state.selectedUser);
-    // const updateItems = useUser((state) => state.updateItems);
-    const selectUserByEmail = useUser((state) => state.selectUserByEmail);
+    const linkGet = useLink((state) => state.linkGet);
+    const selectUserByEmail = useLink((state) => state.selectUserByEmail);
+    const [ user, setUser ] = useState([]);
     const [ email, setEmail ] = useState('');
     const bigScreenDevice = useMediaQuery("only screen and (min-width : 811px)");
     const navigate = useNavigate();
 
+    // GET user with fetch API
+    useEffect(() => {
+        const fetchPost = async () => {
+            const response = await fetch(
+                linkGet,
+            );
+            const data = await response.json();
+            setUser(data);
+        };
+        fetchPost();
+    }, []);
+
     const handleEmail = (event) => {
         setEmail(event.target.value);
-    }
-
+    };
     const goToBeranda = () => {
         navigate('/beranda');
     };
@@ -31,8 +41,6 @@ export default function Section() {
         const password = document.getElementById('kataSandi');
     
         if (togglePassword && password) {
-            // alert("Clicked!");
-            
             if (password.type === "password") {
                 password.type = "text";
                 togglePassword.classList.remove("fa-eye");
@@ -44,20 +52,16 @@ export default function Section() {
             }
         }
     }
-    const clickToLogin = () => {
-        // const findId = items.find(item => item.email === email).id;
-        // updateItems([{ id: findId, kataSandi, konfirmasiKataSandi }]);
-        handleSelectedEmail(email);
+    const clickToLogin = (index) => {
+        const findItem = user.find(item => item.email == index);
+        if (findItem === undefined) {
+            console.log("Undefined");
+            return;
+        }
+        console.log("Find Item: ", findItem);
+        selectUserByEmail(findItem);
         goToBeranda();
-        // navigate('/beranda');
     }
-
-    // console.log('Selecting: ', selectedUser);
-
-    const handleSelectedEmail = (index) => {
-        selectUserByEmail(index);
-    };
-    console.log(items);
     
     return (
         <>
@@ -91,7 +95,7 @@ export default function Section() {
                     <h5 className="forgotPassword" id="forgotPassword">
                     <a onClick={goToLupaKataSandi} href="">Lupa Password?</a>
                     </h5>
-                    <button className="btnMasuk" onClick={clickToLogin}>Masuk</button>
+                    <button className="btnMasuk" onClick={() => clickToLogin(email)}>Masuk</button>
                     <br />
                     <button className="btnDaftar" onClick={goToregister}>Daftar</button>
                     <br />

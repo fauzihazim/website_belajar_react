@@ -4,10 +4,14 @@ import './Section.css';
 import { useNavigate } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-
-import useUser from "../../data/UseUser";
+import useLink from '../../data/UseLink';
+// import useUser from "../../data/UseUser";
 
 export default function Section() {
+    const selectedUser = useLink((state) => state.selectedUser);
+    const linkCreate = useLink((state) => state.linkCreate);
+    const selectUserByEmail = useLink((state) => state.selectUserByEmail);
+    const [ data, setData ] = useState([]);
     const bigScreenDevice = useMediaQuery("only screen and (min-width : 811px)");
     const xsScreenDevice = useMediaQuery("only screen and (max-width : 349px)");
     // Function See Password
@@ -32,8 +36,8 @@ export default function Section() {
 
 
     // Data
-    const items = useUser((state) => state.items);
-    const addItem = useUser((state) => state.addItem);
+    // const items = useUser((state) => state.items);
+    // const addItem = useUser((state) => state.addItem);
     const [ namaLengkap, setNamaLengkap ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ noHp, setNoHp ] = useState('');
@@ -43,12 +47,13 @@ export default function Section() {
     const navigate = useNavigate();
     
     // const [ lastName, setLastName ] = useState('');
-    console.log(items);
+    // console.log(items);
     
     const handleAddItem = () => {
-        console.log(items);
-        const filteredPeople = items.find(item => item.email === email);
+        // console.log(items);
+        // const filteredPeople = items.find(item => item.email === email);
     // console.log(!filteredPeople);
+        const filteredPeople = false;
         if (filteredPeople) {
             alert("User sudah ada");
             setNamaLengkap('');
@@ -58,17 +63,47 @@ export default function Section() {
             setKonfirmasiKataSandi('');
             return;
         }
-        addItem({ id: items.length + 1, namaLengkap, email, noHp, kataSandi, konfirmasiKataSandi });
+        addUser(namaLengkap, email, noHp, kataSandi, konfirmasiKataSandi);
+        console.log("Data", data);
+        
+        // selectUserByEmail(data);
+        // addItem({ id: items.length + 1, namaLengkap, email, noHp, kataSandi, konfirmasiKataSandi });
         setNamaLengkap('');
         setEmail('');
         setNoHp('');
         setKataSandi('');
         setKonfirmasiKataSandi('');
+        console.log("Selected user, ", selectedUser);
+        
         goToBeranda();
         
         // Late assign
         // console.log(items);
     };
+
+    const addUser = async (namaLengkap, email, noHp, kataSandi, konfirmasiKataSandi) => {
+        let response = await fetch(linkCreate, {
+            method: 'POST',
+            body: JSON.stringify({
+                namaLengkap,
+                email,
+                noHp,
+                kataSandi,
+                konfirmasiKataSandi,
+                // id: Number(posts.length) + 1,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+        let data = await response.json();
+        selectUserByEmail(data)
+        console.log("Nih ", data);
+        
+        // setData(data);
+    }
+    // console.log("Data Ku: ", data);
+    
     const goToBeranda = () => {
         navigate('/beranda');
     }
@@ -92,6 +127,9 @@ export default function Section() {
             }
         }
     }
+    // console.log("Link create: ", linkCreate);
+    console.log("Selected user, ", selectedUser);
+    
     return (
         <>
             <section className={bigScreenDevice ? "isBigScreen" : "isSmallScreen"}>

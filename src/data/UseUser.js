@@ -26,9 +26,6 @@ const useUser = create((set) => ({
         // items: state.items.filter(item => !index.includes(item.id))
         items: state.items.filter(item => item.email != index)
     })),
-    // selectItem: () => set(state => ({
-    //     item: state.item
-    // }))
 }));
 
 export default useUser;
