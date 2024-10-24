@@ -2,10 +2,14 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 import './Section.css';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import useLink from "../../data/UseLink";
+// import useLink from "../../data/UseLink";
+import useLink from "../../store/zustand/Store";
+import { GetData } from "../../services/api";
 
 export default function Section() {
     const linkGet = useLink((state) => state.linkGet);
+    const users = useLink((state) => state.users);
+    const getAllUsers = useLink((state) => state.getAllUsers);
     const selectUserByEmail = useLink((state) => state.selectUserByEmail);
     const [ user, setUser ] = useState([]);
     const [ email, setEmail ] = useState('');
@@ -13,16 +17,22 @@ export default function Section() {
     const navigate = useNavigate();
 
     // GET user with fetch API
-    useEffect(() => {
-        const fetchPost = async () => {
-            const response = await fetch(
-                linkGet,
-            );
-            const data = await response.json();
-            setUser(data);
-        };
-        fetchPost();
-    }, []);
+    // useEffect(() => {
+    //     const fetchPost = async () => {
+    //         const response = await fetch(
+    //             linkGet,
+    //         );
+    //         const data = await response.json();
+    //         setUser(data);
+    //     };
+    //     fetchPost();
+    // }, []);
+    // const users = GetData();
+    getAllUsers(GetData());
+    // console.log("The Users is: ", users);
+    
+    // console.log("Data User is ", users);
+    
 
     const handleEmail = (event) => {
         setEmail(event.target.value);
@@ -53,13 +63,15 @@ export default function Section() {
         }
     }
     const clickToLogin = (index) => {
-        const findItem = user.find(item => item.email == index);
+        // const findItem = user.find(item => item.email == index);
+        const findItem = users.find(item => item.email == index);
         if (findItem === undefined) {
             console.log("Undefined");
             return;
         }
         console.log("Find Item: ", findItem);
         selectUserByEmail(findItem);
+        console.log("Selected user ", users);
         goToBeranda();
     }
     

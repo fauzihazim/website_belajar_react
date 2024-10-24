@@ -1,11 +1,12 @@
 import React from 'react';
 import { event } from 'jquery';
 import { useMediaQuery } from "@uidotdev/usehooks";
-import useUser from '../../data/UseUser';
+// import useUser from '../../data/UseUser';
+// import useUser from '../../store/zustand/UseUser';
 import './styles/Section.css';
 
 export default function Section() {
-    const selectedUser = useUser((state) => state.selectedUser);
+    // const selectedUser = useUser((state) => state.selectedUser);
     const bigScreenDevice = useMediaQuery("only screen and (min-width : 811px)");
     function openCategory (evt, categoryName, idTag) {
         if (categoryName) {

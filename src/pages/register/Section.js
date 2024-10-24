@@ -2,16 +2,13 @@ import React, { useState } from 'react';
 import { useMediaQuery } from "@uidotdev/usehooks";
 import './Section.css';
 import { useNavigate } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import useLink from '../../data/UseLink';
-// import useUser from "../../data/UseUser";
+import useLink from '../../store/zustand/Store';
+import { AddData } from "../../services/api";
 
 export default function Section() {
     const selectedUser = useLink((state) => state.selectedUser);
     const linkCreate = useLink((state) => state.linkCreate);
     const selectUserByEmail = useLink((state) => state.selectUserByEmail);
-    const [ data, setData ] = useState([]);
     const bigScreenDevice = useMediaQuery("only screen and (min-width : 811px)");
     const xsScreenDevice = useMediaQuery("only screen and (max-width : 349px)");
     // Function See Password
@@ -20,8 +17,6 @@ export default function Section() {
         const password = document.getElementById('kataSandi');
     
         if (togglePassword && password) {
-            // alert("Clicked!");
-            
             if (password.type === "password") {
                 password.type = "text";
                 togglePassword.classList.remove("fa-eye");
@@ -33,11 +28,6 @@ export default function Section() {
             }
         }
     }
-
-
-    // Data
-    // const items = useUser((state) => state.items);
-    // const addItem = useUser((state) => state.addItem);
     const [ namaLengkap, setNamaLengkap ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ noHp, setNoHp ] = useState('');
@@ -45,77 +35,18 @@ export default function Section() {
     const [ konfirmasiKataSandi, setKonfirmasiKataSandi ] = useState('');
 
     const navigate = useNavigate();
-    
-    // const [ lastName, setLastName ] = useState('');
-    // console.log(items);
-    
-    const handleAddItem = () => {
-        // console.log(items);
-        // const filteredPeople = items.find(item => item.email === email);
-    // console.log(!filteredPeople);
-        const filteredPeople = false;
-        if (filteredPeople) {
-            alert("User sudah ada");
-            setNamaLengkap('');
-            setEmail('');
-            setNoHp('');
-            setKataSandi('');
-            setKonfirmasiKataSandi('');
-            return;
-        }
-        addUser(namaLengkap, email, noHp, kataSandi, konfirmasiKataSandi);
-        console.log("Data", data);
-        
-        // selectUserByEmail(data);
-        // addItem({ id: items.length + 1, namaLengkap, email, noHp, kataSandi, konfirmasiKataSandi });
-        setNamaLengkap('');
-        setEmail('');
-        setNoHp('');
-        setKataSandi('');
-        setKonfirmasiKataSandi('');
-        console.log("Selected user, ", selectedUser);
-        
+    const handleAddItem = async () => {
+        selectUserByEmail(await AddData(namaLengkap, email, noHp, kataSandi, konfirmasiKataSandi));
         goToBeranda();
-        
-        // Late assign
-        // console.log(items);
     };
-
-    const addUser = async (namaLengkap, email, noHp, kataSandi, konfirmasiKataSandi) => {
-        let response = await fetch(linkCreate, {
-            method: 'POST',
-            body: JSON.stringify({
-                namaLengkap,
-                email,
-                noHp,
-                kataSandi,
-                konfirmasiKataSandi,
-                // id: Number(posts.length) + 1,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        });
-        let data = await response.json();
-        selectUserByEmail(data)
-        console.log("Nih ", data);
-        
-        // setData(data);
-    }
-    // console.log("Data Ku: ", data);
-    
     const goToBeranda = () => {
         navigate('/beranda');
     }
-    
     // Function See Confirm Password
     function seeConfirmPassword () {
         const togglePassword = document.getElementById('toggleKonfirmasiPassword');
         const password = document.getElementById('konfirmasiKataSandi');
-    
         if (togglePassword && password) {
-            // alert("Clicked!");
-            
             if (password.type === "password") {
                 password.type = "text";
                 togglePassword.classList.remove("fa-eye");
@@ -127,9 +58,6 @@ export default function Section() {
             }
         }
     }
-    // console.log("Link create: ", linkCreate);
-    console.log("Selected user, ", selectedUser);
-    
     return (
         <>
             <section className={bigScreenDevice ? "isBigScreen" : "isSmallScreen"}>
@@ -170,7 +98,6 @@ export default function Section() {
                         <br />
                         <input type="password" name="" id="kataSandi" className="inputKataSandi" value={kataSandi} onChange={(e) => setKataSandi(e.target.value)} />
                         <span className="password-toggle-icon">
-                            {/* <FontAwesomeIcon icon={faEyeSlash} className="passwordIcon" /> */}
                             <i className="fa-solid fa-eye" id="togglePassword" onClick={() => seePassword()}></i>
                         </span>
                     </div>
@@ -182,7 +109,6 @@ export default function Section() {
                         <br />
                         <input type="password" className="inputKonfirmasiPassword" name="" id="konfirmasiKataSandi" value={konfirmasiKataSandi} onChange={(e) => setKonfirmasiKataSandi(e.target.value)} />
                         <span className="password-toggle-icon">
-                            {/* <FontAwesomeIcon icon={faEyeSlash} className="passwordIcon" /> */}
                             <i className="fa-solid fa-eye" id="toggleKonfirmasiPassword" onClick={() => seeConfirmPassword()}></i>
                         </span>
                     </div>
