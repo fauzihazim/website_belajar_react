@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useLink from '../data/UseLink';
+// import useLink from '../data/UseLink';
 export function GetData() {
     const [posts, setPosts] = useState([]);
     useEffect(() => {

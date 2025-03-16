@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from "@uidotdev/usehooks";
 import './styles/Header.css';
-// import useLink from '../../data/UseLink';
 import useLink from '../../store/zustand/Store';
 import { GetData, DeleteData } from '../../services/api';
 
@@ -10,8 +9,6 @@ export default function Header() {
     const users = useLink((state) => state.users);
     const getAllUsers = useLink((state) => state.getAllUsers);
     const selectedUser = useLink((state) => state.selectedUser);
-    const selectUserByEmail = useLink((state) => state.selectUserByEmail);
-    const linkDelete = useLink((state) => state.linkDelete);
     const bigScreenDevice = useMediaQuery("only screen and (min-width : 811px)");
 
     const goToLogin = () => {
@@ -32,7 +29,7 @@ export default function Header() {
                     <img className="nav-logo" src="../logo.png" alt="logo video belajar" />
                     <ul className="account nav-menu" style={{ margin: 0 }}>
                         <li className="kategori nav-item" style={{ marginRight:5 }}>
-                            <a style={{ textDecoration: 'none' }} className="nav-link" onClick={() => deleteAccount()}>{selectedUser.namaLengkap}</a>
+                            <button style={{ textDecoration: 'none' }} className="nav-link" onClick={() => deleteAccount()}>{selectedUser.namaLengkap}</button>
                         </li>
                         <li className="liUserPhoto nav-item">
                             <img className="nav-link userPhoto" src="../image.png" alt="" srcSet="" style={{ float:"right" }} />
