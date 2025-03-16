@@ -24,7 +24,7 @@ const useUser = create((set) => ({
     })),
     deleteItem: (index) => set(state => ({
         // items: state.items.filter(item => !index.includes(item.id))
-        items: state.items.filter(item => item.email != index)
+        items: state.items.filter(item => item.email !== index)
     })),
 }));
 
