@@ -1,0 +1,106 @@
+.isBigScreen h1 {
+    font-family: Poppins; font-size: 32px; font-weight: 600; line-height: 35.2px; text-align: center;
+}
+.isBigScreen .labelEmail {
+    font-family: DM Sans;
+    color: #4A505C;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+    float: left;
+    margin-left: 0px !important;
+}
+.isBigScreen .inputEmail {
+    width: 518px;
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: #F1F1F1;
+    margin-bottom: 18px;
+}
+.isBigScreen .labelPassword {
+    font-family: DM Sans;
+    color: #4A505C;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+    float: left;
+    margin-left: 0px !important;
+}
+.isBigScreen .inputPassword {
+    width: 518px;
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: #F1F1F1;
+    margin-bottom: 18px;
+}
+.isBigScreen .labelConfirmPassword {
+    font-family: DM Sans;
+    color: #4A505C;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+    float: left;
+    margin-left: 0px !important;
+}
+.isBigScreen .inputConfirmPassword {
+    width: 518px;
+    height: 48px;
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: #F1F1F1;
+    margin-bottom: 18px;
+}
+.isBigScreen .btnSubmit {
+    width: 518px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: #3ECF4C;
+    color: #FFFFFF;
+    border: 0px;
+    margin-bottom: 16px;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+    letter-spacing: 0.20000000298023224px;
+}
+
+/* IsSmallScreen */
+.isSmallScreen .inputPassword, .inputKonfirmasiPassword {
+    width: 100%;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: #F1F1F1;
+}
+.isSmallScreen .labelConfirmPassword {
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333AD;
+}
+
+.isSmallScreen .btnSubmit {
+    width: 100%;
+    gap: 0px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 16px;
+    opacity: 0px;
+    background-color: #3ECF4C;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: center;
+    color: #FFFFFF;
+}

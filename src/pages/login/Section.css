@@ -116,7 +116,7 @@ article {
     letter-spacing: 0.20000000298023224px;
     text-align: left;
     float: left;
-    margin-left: 36px;
+    margin-left: 0px !important;
 }
 .isBigScreen .inputEmail {
     width: 518px;
